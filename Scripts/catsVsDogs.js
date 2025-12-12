@@ -409,19 +409,39 @@ function moveDog(dog) {
     //const dangerRect = dangerLine.getBoundingClientRect();
 
     // DOG HAS ENTERED THE RED ZONE
-    if (nextLeft <= 6) {       // because your dangerLine width = 6px
-    if (!dog.hasDamaged) {
+    // Use DOM-based collision detection against the visible dangerLine element
+    let enteredDanger = false;
+    if (dangerLine) {
+      try {
+        const dogRect = dog.getBoundingClientRect();
+        const dangerRect = dangerLine.getBoundingClientRect();
+        // Consider the dog in danger as soon as its left edge touches the right edge of the danger line.
+        enteredDanger = dogRect.left <= dangerRect.right;
+      } catch (e) {
+        // fallback to the old numeric check if anything goes wrong
+        enteredDanger = nextLeft <= 6;
+      }
+    } else {
+      // If there's no dangerLine element, use the old heuristic
+      enteredDanger = nextLeft <= 6;
+    }
+
+    if (enteredDanger) {
+      if (!dog.hasDamaged) {
         dog.hasDamaged = true;
         lives--;
         livesDisplay.innerText = "Lives: " + lives;
 
         if (lives <= 0) {
-            clearInterval(dogSpawnInterval);
-            alert("GAME OVER! Cats got cooked 💀😿");
-            location.reload();
+          clearInterval(dogSpawnInterval);
+          alert("GAME OVER! Cats got cooked 💀😿");
+          location.reload();
         }
       }
-      dog.remove();
+      // clear any behavior/intervals before removing
+      cleanupDog(dog);
+      if (dog._raf) cancelAnimationFrame(dog._raf);
+      if (dog.parentElement) dog.remove();
       return;
     }
 
@@ -713,3 +733,4 @@ if (damageBtn) {
 }
 
 /* ===== End of file ===== */
+
