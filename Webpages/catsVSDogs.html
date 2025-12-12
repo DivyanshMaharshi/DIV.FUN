@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats vs Dogs</title>
+    <link rel="stylesheet" href="../Styles/catsVsDogs.css">
+    <link rel="icon" type="image/x-icon" href="../Favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1><a href="../index.html">Cats VS Dogs</a></h1>
+<hr color = "#4A3F35" size="2" width = "100%">
+
+<div id="gameArea">
+    <div id="dangerLine"></div>
+    <img id="player" src="../Assets/catsVsDogsAssets/cat.png">
+</div>
+<hr color="#4A3F35" size="2" width="100%">
+<button id="startBtn">START!</button>
+
+<div id="bottomUI" class="hidden">
+
+<div class="stats">
+        <p>Dollaz: <span id="money">0</span></p>
+        <p>Time: <span id = "timer">0</span></p>
+</div>
+
+<div class="upgrades">
+    <button id="fireRateBtn" class="gameBtn">Upgrade Fire Rate (Cost: 10)</button>
+    <button id="rangeBtn">Upgrade Range (Cost: 15)</button>
+    <button id="damageBtn">Upgrade Damage (Cost: 20)</button>
+</div>
+
+
+</div>
+
+<script src = "../Scripts/catsVsDogs.js"></script>
+
+</body>

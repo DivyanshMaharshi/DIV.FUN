@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<!--okay i got help in this (vibe coding O_O)-->
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href = "../Styles/mainStyles.css" rel = "stylesheet">
+    <link rel="icon" type="image/x-icon" href="../Favicon.png">
+    <style>
+    html, body {height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;}
+    </style>
+    <title>Mouse Chase</title>
+</head>
+
+<body>
+
+<a href = "../index.html"><h1 class = "home">Mouse Chase</h1></a>
+<hr color = "#4A3F35" size="2" width = "100%">
+
+<img id = "mouse" src = "../Assets/mouseChaseAssets/mouse.png">
+<img id = "cat" src = "../Assets/mouseChaseAssets/cat.png">
+
+<h3 id = "mouseChaseTimer"></h3>
+<button type = "button" id = "mouseChaseButton" onClick = play()>Play</button>
+
+<script src = "../Scripts/mouseChase.js"></script>
+
+</body>
+</html>
