@@ -186,7 +186,7 @@ createDogType("slimeDog", {
       slime.src = "../Assets/catsVsDogsAssets/slime.png";
       slime.className = "slimePuddle";
       slime.style.position = "absolute";
-      slime.style.width = "180px";
+      slime.style.width = "90px";
       slime.style.left = dog.style.left;
       slime.style.top = dog.style.top;
       slime.style.opacity = "0";
@@ -409,39 +409,19 @@ function moveDog(dog) {
     //const dangerRect = dangerLine.getBoundingClientRect();
 
     // DOG HAS ENTERED THE RED ZONE
-    // Use DOM-based collision detection against the visible dangerLine element
-    let enteredDanger = false;
-    if (dangerLine) {
-      try {
-        const dogRect = dog.getBoundingClientRect();
-        const dangerRect = dangerLine.getBoundingClientRect();
-        // Consider the dog in danger as soon as its left edge touches the right edge of the danger line.
-        enteredDanger = dogRect.left <= dangerRect.right;
-      } catch (e) {
-        // fallback to the old numeric check if anything goes wrong
-        enteredDanger = nextLeft <= 6;
-      }
-    } else {
-      // If there's no dangerLine element, use the old heuristic
-      enteredDanger = nextLeft <= 6;
-    }
-
-    if (enteredDanger) {
-      if (!dog.hasDamaged) {
+    if (nextLeft <= 6) {       // because your dangerLine width = 6px
+    if (!dog.hasDamaged) {
         dog.hasDamaged = true;
         lives--;
         livesDisplay.innerText = "Lives: " + lives;
 
         if (lives <= 0) {
-          clearInterval(dogSpawnInterval);
-          alert("GAME OVER! Cats got cooked 💀😿");
-          location.reload();
+            clearInterval(dogSpawnInterval);
+            alert("GAME OVER! Cats got cooked 💀😿");
+            location.reload();
         }
       }
-      // clear any behavior/intervals before removing
-      cleanupDog(dog);
-      if (dog._raf) cancelAnimationFrame(dog._raf);
-      if (dog.parentElement) dog.remove();
+      dog.remove();
       return;
     }
 
@@ -733,4 +713,3 @@ if (damageBtn) {
 }
 
 /* ===== End of file ===== */
-
