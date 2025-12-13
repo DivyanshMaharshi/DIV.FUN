@@ -401,6 +401,7 @@ function cleanupDog(dog) {
 
 function moveDog(dog) {
   function step() {
+    if (dog.isDead) return;
     const currentLeft = parseFloat(dog.style.left) || 0;
     const nextLeft = currentLeft - dog.speed;
     dog.style.left = nextLeft + "px";
@@ -579,6 +580,7 @@ function moveBullet(bullet) {
 
           if (dog._raf) cancelAnimationFrame(dog._raf);
           if (dog.parentElement) dog.remove();
+          dog.isDead = true;
 
           money += dog.reward || 2;
           if (moneyEl) moneyEl.innerText = money;
