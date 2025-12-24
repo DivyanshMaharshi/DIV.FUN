@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main homepage — most important -->
+  <url>
+    <loc>https://divyanshmaharshi.github.io/DIV.FUN/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Mouse Chase game -->
+  <url>
+    <loc>https://divyanshmaharshi.github.io/DIV.FUN/Webpages/mouseChase.html</loc>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Make A Monster — featured project -->
+  <url>
+    <loc>https://divyanshmaharshi.github.io/DIV.FUN/Webpages/makeAMonster.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Cats vs Dogs — fun interactive content -->
+  <url>
+    <loc>https://divyanshmaharshi.github.io/DIV.FUN/Webpages/catsVSDogs.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Art, Math & Illusions — cool but not main -->
+  <url>
+    <loc>https://divyanshmaharshi.github.io/DIV.FUN/Webpages/artMathAndIllusions.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- MEMEazon — super cool! -->
+  <url>
+    <loc>https://divyanshmaharshi.github.io/DIV.FUN/Webpages/memeAzon.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>

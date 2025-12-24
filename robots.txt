@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://divyanshmaharshi.github.io/DIV.FUN/sitemap.xml

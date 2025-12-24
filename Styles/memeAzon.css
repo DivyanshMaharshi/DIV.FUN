@@ -1,0 +1,748 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* https://colorhunt.co/palette/ebf4dd90ab8b5a78633b4953 */
+
+::selection {
+    color: #90AB8B;
+    background-color: #003300;
+}
+
+input,
+textarea,
+button,
+select {
+    font-family: inherit;
+}
+
+.homePageLink {
+    position: static;
+    top: 20px;
+    left: 20px;
+    transition: transform 0.3s ease;
+    z-index: 10;
+    -webkit-filter: drop-shadow(0px 3px 1px #003300);
+    filter: drop-shadow(0px 3px 1px #003300);
+}
+
+.homePageLink:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #90AB8B, #EBF4DD);
+    font-family: roboto;
+    color: #003300;
+    background-color: #90AB8B;
+    margin: 0;
+    padding: 0;
+    /* REMOVE position: fixed */
+}
+
+#heading {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    z-index: 5;
+
+    animation: floatLogo 4s ease-in-out infinite;
+    filter: drop-shadow(0 6px 12px rgba(0, 51, 0, 0.35));
+}
+
+.memeHeader {
+    margin: none;
+    /* REMOVE top: 100px; and position: fixed is likely implied here by lack of it, but ensure it's not set elsewhere */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 4;
+    /* Add padding-top to ensure space below the fixed heading */
+    padding-top: 100px;
+    gap: 10px;
+    pointer-events: auto;
+}
+
+#sortSelect,
+#searchBar,
+#createButton,
+#cart {
+    /* REMOVE margin-top: 40px; from all of these */
+    margin-top: 0; /* Reset or remove this property */
+    /* ... other existing styles ... */
+}
+
+#sortSelect {
+    color: #003300;
+    background-color: #90AB8B;
+
+    margin-top: 40px;
+
+    padding: 14px 18px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: 2px solid #003300;
+
+    cursor: pointer;
+    outline: none;
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#sortSelect:hover {
+    transform: scale(1.06);
+    box-shadow: 0 6px 14px rgba(0, 51, 0, 0.25);
+}
+
+#sortSelect option {
+    background: #EBF4DD;
+    color: #003300;
+}
+
+::placeholder {
+    color:#003300
+}
+
+#searchBar {
+    color: #003300;
+    background-color: #90AB8B;
+
+    margin-top: 40px;
+
+    width: 60%;
+    max-width: 600px;
+    padding: 14px 20px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: 2px solid #003300;
+
+    outline: none;
+
+    box-shadow: 0px 4px 2px#90AB8B;
+}
+
+#createOverlay {
+    z-index: 2000;
+}
+
+#checkoutOverlay {
+    z-index: 1500;
+}
+
+#createButton {
+    color: #003300;
+    background-color: #90AB8B;
+
+    margin-top: 40px;
+
+    padding: 14px 20px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: 2px solid #003300;
+
+    outline: none;
+    text-decoration: none;
+
+    box-shadow: 0px 4px 2px#90AB8B;
+    transition: transform 0.3s ease;
+}
+
+#createButton:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* CART BUTTON */
+
+#checkoutModal {
+    pointer-events: auto;
+}
+
+#checkoutOverlay {
+    pointer-events: none;
+}
+
+#checkoutOverlay.active {
+    pointer-events: auto;
+}
+
+#cart {
+    margin-top: 40px;
+    font-size: 20px;
+    padding: 12px 16px;
+    border-radius: 30px;
+    border: 2px solid #003300;
+    background: #90AB8B;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#cart:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 51, 0, 0.25);
+}
+
+.cartPop {
+    animation: cartPop 0.35s ease;
+}
+
+@keyframes cartPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+/* OVERLAY */
+#checkoutOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 1000;
+}
+
+#checkoutOverlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* MODAL */
+#checkoutModal {
+    background: #EBF4DD;
+    padding: 26px;
+    border-radius: 22px;
+    width: 90%;
+    max-width: 420px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    transform: translateY(12px) scale(0.95);
+    opacity: 0;
+
+    transition: transform 0.3s cubic-bezier(.2,.9,.3,1),
+                opacity 0.3s ease;
+
+    box-shadow: 0 20px 40px rgba(0, 51, 0, 0.35);
+}
+
+#checkoutOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1500;
+    pointer-events: none;
+    display: none;
+}
+
+#checkoutOverlay.active {
+    display: flex;
+    pointer-events: auto;
+}
+
+#createOverlay {
+    z-index: 2000;
+}
+
+#checkoutOverlay:not(.active) {
+    display: none;
+}
+
+
+#checkoutOverlay.active #checkoutModal {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+#checkoutList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 15px;
+}
+
+.checkoutRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: #90AB8B;
+}
+
+.checkoutTotal {
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 2px dashed #003300;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: right;
+}
+
+/* CHECKOUT BUTTON */
+#checkoutBtn {
+    background-color: #90AB8B;
+    color: #003300;
+    border: 2px solid #003300;
+    padding: 12px;
+    border-radius: 18px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+#checkoutBtn:hover {
+    transform: scale(1.05);
+}
+
+/* NEVERMIND */
+#cancelCheckout {
+    all: unset;
+    display: block;
+
+    text-align: center;
+    padding: 10px 18px;
+    border-radius: 14px;
+
+    background-color: #90AB8B;
+    color: #003300;
+    border: 2px solid #003300;
+
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+#cancelCheckout:hover {
+    background: #ffb3b3;
+    color: #7a0000;
+    border: 2px solid #7a0000;
+    transform: scale(1.05);
+}
+
+/* FAKE BANK */
+#fakeBank {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+progress {
+    display: none;
+    width: 100%;
+    height: 14px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+    background: #90AB8B;
+    border-radius: 20px;
+}
+
+progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #90AB8B, #003300);
+    border-radius: 20px;
+}
+
+#bankText {
+    display: none;
+}
+
+
+#memeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.memeCard {
+    background: #EBF4DD;
+    border-radius: 18px;
+    padding: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.memeCard {
+    cursor: pointer;
+    position: relative;
+}
+
+.memeCard {
+    position: relative;
+}
+
+.memeCard::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 22px;
+    box-shadow: none;
+    opacity: 0;
+    transition: opacity 0.25s ease, box-shadow 0.25s ease;
+    pointer-events: none;
+}
+
+.memeCard:hover::after {
+    opacity: 1;
+    box-shadow: 0 0 22px rgba(0, 51, 0, 1);
+}
+
+.memeCard.addedToCart::after {
+    opacity: 1;
+    box-shadow: 0 0 26px rgba(0, 51, 0, 1);
+}
+
+#memeIcon {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.memeCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 51, 0, 0.25);
+}
+
+.memeCard img {
+    width: 100%;
+    border-radius: 14px;
+}
+
+.memeCard p {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: large;
+    text-align: center;
+}
+
+#memeIcon {
+    font-size: 42px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    background: #90AB8B;
+    transition: transform 0.2s ease;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.memeCard:hover [id="memeIcon"] {
+    transform: scale(1.15) rotate(-3deg);
+}
+
+/* --- CARD TOP --- */
+#memeTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+#displayName {
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.55;
+    letter-spacing: 0.3px;
+    user-select: none;
+}
+
+.memeCard:hover .displayName {
+    opacity: 0.75;
+}
+
+/* --- REPORT --- */
+#reportBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    opacity: 0.5;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#reportBtn:hover {
+    opacity: 1;
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* --- TEXT --- */
+#memeText {
+    margin: 8px 0 12px;
+}
+
+#memeCost {
+    font-size: x-large;
+    transition: transform 0.15s ease;
+}
+
+#memeCost:hover {
+    transform: scale(1.1)
+}
+
+/* --- LIKE BUTTON --- */
+#memeBottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+#memeBottom  * {
+    margin: none;
+}
+
+#likeBtn {
+    background: #EBF4DD;
+    border: none;
+    border-radius: 20px;
+
+    cursor: pointer;
+    font-size: 15px;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+#likeBtn:hover {
+    background: #FFD966;
+    box-shadow: 0 0 12px rgba(255, 217, 102, 0.8);
+    transform: scale(1.1);
+}
+
+#createOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+
+    z-index: 999;
+}
+
+#createOverlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#createOverlay {
+    display: none;
+}
+
+#createOverlay.active {
+    display: flex;
+}
+
+#createModal input,
+#createModal textarea,
+#createModal select,
+#createModal button {
+    pointer-events: auto;
+    position: relative;
+    z-index: 5;
+}
+
+#createModal {
+    background: #EBF4DD;
+    padding: 24px;
+    border-radius: 22px;
+    width: 90%;
+    max-width: 420px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    transform: translateY(12px) scale(0.95);
+    opacity: 0;
+
+    transition: transform 0.3s cubic-bezier(.2,.9,.3,1),
+                opacity 0.3s ease;
+
+    box-shadow: 0 20px 40px rgba(0, 51, 0, 0.35);
+    pointer-events: auto;
+    z-index: 2000;
+}
+
+#createOverlay.active #createModal {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+
+@keyframes popIn {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+#createModal input,
+#createModal textarea,
+#createModal select {
+    padding: 12px 16px;
+    border-radius: 16px;
+    border: 2px solid #003300;
+    background: #90AB8B;
+    font-size: 16px;
+    color: #003300;
+    outline: none;
+}
+
+#createModal textarea {
+    resize: none;
+    min-height: 90px;
+}
+
+#submitBtn {
+    background-color: #90AB8B;
+    color: #003300;
+    border: 2px solid #003300;
+    padding: 12px;
+    border-radius: 18px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#submitBtn:active {
+    transform: scale(0.96);
+}
+
+#closeBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.6;
+    font-size: medium;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(6px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.35s ease;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.submitPop {
+    animation: pop 0.25s ease;
+}
+
+#rotateOverlay {
+  position: fixed;
+  inset: 0;
+  background: #000000cc;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.rotateBox {
+  background: #FCF5EF;
+  padding: 24px 28px;
+  border-radius: 18px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.rotateIcon {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+  .createOverlay {
+    align-items: flex-start;
+    padding: 14px;
+  }
+
+  .createBox {
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 100%;
+    border-radius: 16px;
+    }
+    #heading {
+        width: 250.5;
+        height: 58;
+        position: absolute;
+    }
+    #createButton {
+        height: 25px;
+        font-size: small;
+        align-items: center;
+        justify-content: center;
+    }
+    #cart {
+        height: 25px;
+        font-size: small;
+        align-items: center;
+        justify-content: center;
+    }
+    #createOverlay {align-items: flex-start;}
+    #checkoutOverlay {align-items: flex-start;}
+}
+
+/* FIX CREATE OVERLAY SCROLL */
+#createOverlay {
+    overflow-y: auto;
+}
+
+#createModal {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#checkoutOverlay {
+    overflow-y: auto;
+}
+
+#checkoutModal {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.seoText {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}

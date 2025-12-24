@@ -1,0 +1,168 @@
+/* RESET */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Poppins, sans-serif;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TITLE */
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: #4A3F35;
+    text-shadow: 2px 2px 4px rgba(74, 63, 53, 0.3);
+    transition: transform 0.4s ease;
+    margin: 10px 0 6px 0;
+}  
+
+a { color: #4A3F35; text-decoration:none; }
+
+/* make default hr behave consistently (no extra margins) */
+hr {
+    border: none;
+    height: 2px;
+    margin: 0;                /* <- fix the mysterious vertical gaps */
+    background-color: #4A3F35;
+}
+
+/* GAME AREA - fills middle area using flexbox */
+#gameArea {
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+
+    background: repeating-linear-gradient(
+        0deg,
+        #f5e2c4,
+        #f5e2c4 10px,
+        #f3d9b2 10px,
+        #f3d9b2 20px
+    );
+
+    box-shadow: inset 0px 8px 20px rgba(0,0,0,0.25);
+    overflow: hidden;
+}
+
+/* vertical left danger line */
+#dangerLine {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: red;
+    box-shadow: 0 0 12px rgba(255,0,0,0.7);
+}
+
+/* PLAYER */
+#player {
+    position: absolute;
+    left: 50px;
+    width: 120px;
+    user-select: none;
+    pointer-events: none;
+    top: 60px;
+}
+
+.enemy { position: absolute; width: 100px; pointer-events: none; }
+
+/* BOTTOM UI - fixed-height area; now a flex container so children align properly */
+#bottomUI {
+    height: 200px; /* fixed height so gameArea flex knows how much space to leave */
+    display: flex;             /* <-- fix: ensures .stats and .upgrades align in a row */
+    gap: 20px;
+    padding: 18px 24px;
+    background-color: #FCF5EF;
+    color: #4A3F35;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.25);
+    align-items: center;       /* vertical centering within the bottom bar */
+    box-sizing: border-box;
+}
+
+/* STATS (left) */
+.stats {
+    flex: 1;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-size: 20px;
+    background: #fff7ef;
+}
+
+/* UPGRADES (right) */
+.upgrades {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#fireRateBtn {
+    padding: 14px 24px; 
+    font-size: 20px;
+    border-radius: 12px;
+}
+
+
+/* generic buttons (keeps your style, but slightly smaller font for upgrades so they fit) */
+button {
+    background-color: #F7E7DC;
+    border: none;
+    border-radius: 12px;
+    color: #4A3F35;
+    font-size: 20px;            /* reduced from 30 -> 20 so upgrade buttons don't overflow */
+    box-shadow: 2px 2px 4px rgba(74, 63, 53, 0.3);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    padding: 10px 18px;
+}
+
+button:hover {
+    box-shadow: 2px 2px 4px rgba(74, 63, 53, 0.6);
+    background-color: #4A3F35;
+    color: #FCF5EF;
+}
+
+/* Start button (keeps it centered between gameArea & bottomUI) */
+#startBtn {
+    margin: 18px auto;
+    display: block;
+    padding: 12px 30px;
+    font-size: 24px;
+    border-radius: 12px;
+}
+
+.bullet {
+    position: absolute;
+    width: 40px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.poof {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url('../Assets/catsVsDogsAssets/poof.png') center/contain no-repeat;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+/* hide helper */
+.hidden { display: none !important; }
+
+.seoText {
+  position: absolute;
+  left: -9999px;
+}

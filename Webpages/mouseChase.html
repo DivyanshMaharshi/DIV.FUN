@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang = "en">
+<!--okay i got help in this (vibe coding O_O)-->
+<head>
+    <meta charset="UTF-8">
+
+    <title>Mouse Chase</title>
+
+    <meta name="description" content="Your cursor is a mouse. Don't let the cat catch you!">
+    <meta name="keywords" content="fun game, mouse game, cat, game, chill">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph (for previews) -->
+    <meta property="og:title" content="Mouse Chase - DIV.FUN">
+    <meta property="og:description" content="Your cursor is a mouse! Don't let the cat eat you!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://divyanshmaharshi.github.io/DIV.FUN/Webpages/mouseChase.html">
+    <meta property="og:image" content="https://divyanshmaharshi.github.io/DIV.FUN/Assets/Favicon.png">
+
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href = "../Styles/mouseChase.css" rel = "stylesheet">
+    <link rel="icon" type="image/x-icon" href="../Assets/Favicon.png">
+    <style>
+    html, body {height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;}
+    </style>
+</head>
+
+<body class = "coffee">
+
+<section class = "seoText" >
+  <h1>Mouse Chase - DIV.FUN</h1>
+  <p>Your cursor is a mouse. Don't let the cat catch you!</p>
+</section>
+
+<a href = "../index.html"><h1 class = "home">Mouse Chase</h1></a>
+<hr color = "#4A3F35" size="2" width = "100%">
+
+<img id = "mouse" src = "../Assets/mouseChaseAssets/mouse.png">
+<img id = "cat" src = "../Assets/mouseChaseAssets/cat.png">
+
+<h3 id = "mouseChaseTimer"></h3>
+<button type = "button" id = "mouseChaseButton" onClick = play()>Play</button>
+
+<script src = "../Scripts/mouseChase.js"></script>
+
+</body>
+</html>

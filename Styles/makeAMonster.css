@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
+
+/* =========================
+   GLOBAL
+   ========================= */
+* {
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: #4A3F35;
+    color: #FCF5EF;
+}
+
+* {
+    font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #FCF5EF;
+    color: #4A3F35;
+    font-family: "Preahvihear", sans-serif;
+    overflow: hidden;
+}
+
+/* =========================
+   HOME LINK
+   ========================= */
+.homePageLink {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: transform 0.3s ease;
+    z-index: 10;
+    -webkit-filter: drop-shadow(0px 3px 3px #4A3F35);
+    filter: drop-shadow(0px 3px 3px #4A3F35);
+}
+
+.homePageLink:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* =========================
+   MAIN APP LAYOUT
+   ========================= */
+.mamApp {
+    display: grid;
+    grid-template-columns: 320px 1fr 360px;
+    gap: 30px;
+
+    min-height: 100vh;
+
+    /* top | left-right | bottom */
+    padding: 100px 40px 80px; /* 👈 bottom padding added */
+}
+
+.createPanel,
+.previewPanel,
+.collectionPanel {
+    max-height: calc(100vh - 180px);
+}
+
+
+/* =========================
+   CREATE PANEL (LEFT)
+   ========================= */
+.createPanel {
+    background: #FCF5EF;
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    overflow-y: auto;
+}
+
+.createPanel h2 {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.partGroup {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.partGroup p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* =========================
+   MONSTER PREVIEW (CENTER)
+   ========================= */
+.previewPanel {
+    background: #FCF5EF;
+    border-radius: 18px;
+    padding: 24px 20px 32px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-self: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.previewPanel h2 {
+    margin-bottom: 20px;
+}
+
+/* =========================
+   MONSTER STAGE
+   ========================= */
+.monsterStage {
+    position: relative;
+    width: 408px;
+    height: 612px;
+    margin: 0 auto;
+
+    background: #FCF5EF;
+    border-radius: 18px;
+    box-shadow: inset 0 0 0 2px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   MONSTER PARTS
+   ========================= */
+.layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 408px;
+    height: auto;
+
+    transform: translate(-50%, -50%) scale(0.70); /* 👈 smaller monster */
+    pointer-events: none;
+}
+
+
+/* =========================
+   COLLECTION PANEL (RIGHT)
+   ========================= */
+.collectionPanel {
+    background: rgba(74, 63, 53, 0.06);
+    border-radius: 18px;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+button {
+    font-family: inherit;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    background: #4A3F35;
+    color: #FCF5EF;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #3b322a;
+}
+
+.randomBtn {
+    font-size: large;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.editorActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.editorActions button {
+    flex: 1;
+    font-size: 14px;
+}
+
+#saveMonsterBtn {width: 100%;}
+
+/* =========================
+   MONSTER NAME INPUT
+   ========================= */
+#monsterNameInput {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 12px 0 6px;
+    font-family: inherit;
+    font-size: 14px;
+
+    border-radius: 10px;
+    border: 2px solid rgba(74, 63, 53, 0.25);
+    background: #FCF5EF;
+    color: #4A3F35;
+
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+#monsterNameInput:focus {
+    outline: none;
+    border-color: #4A3F35;
+    box-shadow: 0 0 0 3px rgba(74, 63, 53, 0.15);
+}
+
+/* error wiggle */
+#monsterNameInput.inputError {
+    border-color: #c44;
+    animation: shake 0.25s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+
+.collectionPanel {
+    background: #FCF5EF;
+    border-radius: 18px;
+    padding: 20px;
+
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.collectionPanel h2 {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.monsterCard {
+    background: #f0e9e1;
+    border-radius: 14px;
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.monsterCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.monsterThumb {
+  position: relative;
+  width: 120px;
+  height: 180px;
+  background: #e8e1d9;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.monsterThumb img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+
+/* =========================
+   SCROLLBARS
+   ========================= */
+.createPanel::-webkit-scrollbar,
+.collectionPanel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.createPanel::-webkit-scrollbar-thumb,
+.collectionPanel::-webkit-scrollbar-thumb {
+    background: rgba(74, 63, 53, 0.3);
+    border-radius: 10px;
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+   ========================= */
+@media (max-width: 900px) {
+
+    .homePageLink {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+
+    display: block;
+    margin: 12px auto 0;
+  }
+
+  body {
+    overflow-y: auto;
+  }
+
+  .mamApp {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 20px;
+  }
+
+  /* PREVIEW FIRST */
+  .previewPanel {
+    order: 1;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .monsterStage {
+    width: 300px;
+    height: 450px;
+  }
+
+  .layer {
+    width: 300px;
+  }
+
+  /* CREATE PANEL */
+  .createPanel {
+    order: 2;
+    width: 100%;
+    padding: 16px;
+    overflow: hidden;
+    max-height: none;
+  }
+
+  .editorActions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .editorActions button {
+    flex: 1;
+  }
+
+  /* COLLECTION */
+  .collectionPanel {
+    order: 3;
+    width: 100%;
+  }
+
+  .monsterCard {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .monsterThumb {
+    width: 140px;
+    height: 220px; 
+    position: relative;
+  }
+
+  .monsterThumb img {
+    width: 140px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

@@ -1,0 +1,69 @@
+::selection {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body {
+    font-family: poppins;
+}
+
+h2 {
+    font-size: 25px;
+    color: #000000;
+    font-weight: normal;
+}
+
+.cimages {
+    text-align: center;
+}
+
+.mainPageLogo {
+    margin-bottom: 0;
+    -webkit-filter: drop-shadow(0px 3px 3px #222);
+    filter: drop-shadow(0px 3px 3px #222);
+    transition: transform 0.4s ease;
+}
+
+.mainPageLogo:hover {
+    transform: scale(1.05);
+}
+
+.pageButtons {
+    text-align: center;
+    border: 4px solid #4A3F35;
+    box-shadow: 2px 2px 4px rgba(74, 63, 53, 0.3);
+    margin-left: 4px;
+    margin-right: 4px;
+    transition: transform 0.4s ease;
+} 
+
+.pageButtons:hover {
+    box-shadow: 2px 2px 4px rgba(74, 63, 53, 0.6);
+    transform: scale(1.05);
+}
+
+#artMathAndIllusions.pageButtons {
+    border: 4px solid #5f6cff;;
+    box-shadow: 2px 2px 4px rgba(95, 108, 255, 0.3);
+}
+
+#artMathandIllusions.pageButtons {
+    box-shadow: 2px 2px 4px rgba(95, 108, 255, 0.6);
+    transform: scale(1.05);
+}
+
+#memeAzon.pageButtons {
+    border: 4px solid #003300;
+    box-shadow: 2px 2px 4px rgba(0, 51, 0, 0.3);
+}
+
+#artMathandIllusions.pageButtons {
+    box-shadow: 2px 2px 4px rgba(0, 51, 0, 0.6);
+    transform: scale(1.05);
+}
+
+.seoText {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}

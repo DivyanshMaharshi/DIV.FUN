@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Make a Monster</title>
+
+    <meta name="description" content="Make a Monster by choosing its parts and share it with your friends!">
+    <meta name="keywords" content="fun game, monster, make a, make a monster, friends, share, laugh, chill">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph (for previews) -->
+    <meta property="og:title" content="Make a Monster - DIV.FUN">
+    <meta property="og:description" content="Share and laugh creating a monster!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://divyanshmaharshi.github.io/DIV.FUN/Webpages/mouseChase.html">
+    <meta property="og:image" content="https://divyanshmaharshi.github.io/DIV.FUN/Assets/Favicon.png">
+    
+    <link rel = "stylesheet" href = "../Styles/makeAMonster.css">
+    <link rel="icon" type="image/x-icon" href="../Assets/Favicon.png">
+</head>
+<body class = "coffee">
+
+<a href = "../index.html"><img class = "homePageLink" src = "../Assets/Logos/coffee.png" height = 57 width = 156></a>
+<main class="mamApp">
+
+  <!-- CREATE PANEL -->
+  <section class="createPanel">
+    <h2>CREATE</h2>
+
+    <div class="partGroup">
+      <p>Body</p>
+      <button data-part = "body" data-dir = "-1">◀</button>
+      <button data-part = "body" data-dir = "1">▶</button>
+    </div>
+
+    <div class="partGroup">
+      <p>Head</p>
+      <button data-part = "head" data-dir = "-1">◀</button>
+      <button data-part = "head" data-dir = "1">▶</button>
+    </div>
+
+    <div class="partGroup">
+      <p>Eyes</p>
+      <button data-part = "eyes" data-dir = "-1">◀</button>
+      <button data-part = "eyes" data-dir = "1">▶</button>
+    </div>
+
+    <div class="partGroup">
+      <p>Mouth</p>
+      <button data-part = "mouth" data-dir = "-1">◀</button>
+      <button data-part = "mouth" data-dir = "1">▶</button>
+    </div>
+
+    <div class="partGroup">
+      <p>Extra</p>
+      <button data-part = "extra" data-dir = "-1">◀</button>
+      <button data-part = "extra" data-dir = "1">▶</button>
+    </div>
+
+    <button class="randomBtn">🎲 Random Monster</button>
+
+    <input
+    id="monsterNameInput"
+    type="text"
+    placeholder="Monster name..."
+    maxlength="20"/>
+
+    <div class="editorActions">
+      <button id="saveMonsterBtn">Save</button>
+      <button id="shareMonsterBtn">Share</button>
+      <button id="exportMonsterBtn" onclick = "exportPNG()">Export</button>
+    </div>
+  </section>
+
+  <!-- PREVIEW PANEL -->
+  <section class="previewPanel">
+    <h2 id="previewTitle">YOUR MONSTER</h2>
+
+    <div class="monsterStage">
+      <!-- 408x612 -->
+       <img class="layer" src="../Assets/makeAMonsterAssets/Head/1.png">  
+      <img class="layer" src="../Assets/makeAMonsterAssets/Body/1.png">
+      <img class="layer" src="../Assets/makeAMonsterAssets/Eyes/1.png">
+      <img class="layer" src="../Assets/makeAMonsterAssets/Mouth/1.png"> 
+      <img class="layer" src="../Assets/makeAMonsterAssets/Extra/1.png">
+    </div>
+  </section>
+
+  <section class="collectionPanel">
+    <h3>COLLECTION</h3>
+    <div id="monsterCollection"></div>
+  </section>
+
+  
+</main>
+
+<script src = "../Scripts/makeAMonster.js"></script>
+
+</body>
+</html>

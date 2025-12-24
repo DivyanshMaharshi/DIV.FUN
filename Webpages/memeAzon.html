@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>MEMEazon - DIV.FUN</title>
+
+    <meta name="description" content="Buy people memes, and even create your own! A version of Amazon for MEMES!">
+    <meta name="keywords" content="shopping game, game, fun, chill, share, memes, social media, shopping, memeazon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph (for previews) -->
+    <meta property="og:title" content="MEMEazon - DIV.FUN">
+    <meta property="og:description" content="Buy people memes, and even create your own! A version of Amazon for MEMES!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://divyanshmaharshi.github.io/DIV.FUN/Webpages/memeAzon.html">
+    <meta property="og:image" content="https://divyanshmaharshi.github.io/DIV.FUN/Assets/Favicon.png">
+
+    <link rel = "stylesheet" href = "../Styles/memeAzon.css">
+    <link rel="icon" type="image/x-icon" href="../Assets/Favicon.png">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+<section class = "seoText" >
+  <h1>MEMEazon - DIV.FUN</h1>
+  <p>Buy people memes, and even create your own! A version of Amazon for MEMES!</p>
+</section>
+
+<a href = "../index.html"><img class = "homePageLink" src = "../Assets/Logos/forest.png" height = 57 width = 156></a>
+<img src = "../Assets/memeAzonAssets/memeAzonLogo.png" id = "heading">
+<header class = "memeHeader">
+    <select id="sortSelect">
+        <option value="" selected hidden>Sort</option>
+        <option value="new">Newest 🌱</option>
+        <option value="likes">Most Stars ⭐</option>
+        <option value="bought">Most Buys 🛒</option>
+    </select>
+    
+    <input 
+        type = "text" 
+        placeholder = "Search MEMEazon 🔍" 
+        id = "searchBar">
+    <div id = "createButton">Create a Meme ➕</div>
+
+    <div id="cart">
+        Cart 🛒 <span id="cartCount">0</span>
+    </div>
+</header>
+
+<main id = "memeGrid"></main>
+
+<div id = "createOverlay">
+    <div id = "createModal">
+
+        <h2>Create a Meme</h2>
+
+        <input 
+            type = "text"
+            id = "nameInput"
+            placeholder = "Display name">
+
+        <textarea 
+            id = "textInput"
+            placeholder = "Meme text"></textarea>
+
+        <select id = "categorySelect">
+            <option value="funny">😂 Funny</option>
+            <option value="pain">💀 Pain</option>
+            <option value="brain">🤯 Brain</option>
+            <option value="hot-take">🔥 Hot take</option>
+            <option value="sarcasm">🙃 Sarcasm</option>
+            <option value="overwhelmed">🫠 Overwhelmed</option>
+            <option value="awkward">😬 Awkward</option>
+            <option value="cringe">🤡 Cringe</option>
+            <option value="lying">🧢 Lying</option>
+            <option value="slay">💅 Slay</option>
+            <option value="tired">🫩 Tired</option>
+            <option value="gossip">☕ Gossip</option>
+            <option value="caution">🚩 Caution</option>
+        </select>
+
+        <input 
+            type = "number"
+            id = "costInput"
+            placeholder = "Cost">
+
+        <button id = "submitBtn">Publish 🚀</button>
+        <button id = "closeBtn">Cancel</button>
+
+    </div>
+</div>
+
+<div id = "checkoutOverlay">
+    <div id = "checkoutModal">
+
+        <h2>Checkout</h2>
+        <p>You are about to buy some extremely real memes.</p>
+
+        <div id="checkoutList"></div>
+        <button id="checkoutBtn">Buy Memes 💸</button>
+
+        <progress id="bankBar" value="0" max="100"></progress>
+        <p id="bankText">TLB connecting…</p>
+
+        <button id="cancelCheckout">Nevermind</button>
+
+    </div>
+</div>
+
+<div id = "rotateOverlay">
+  <div class = "rotateBox">
+    <div class = "rotateIcon">📱↻</div>
+    <p>Rotate your phone for the best experience</p>
+  </div>
+</div>
+
+<script type="module" src="../Scripts/memeAzon.js"></script>
+
+</body>
+</htmL>
