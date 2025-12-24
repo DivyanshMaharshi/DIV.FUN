@@ -67,7 +67,7 @@ body {
     padding: 20px;
     z-index: 4;
     /* Add padding-top to ensure space below the fixed heading */
-    padding-top: 100px;
+    padding-top: 60px;
     gap: 10px;
     pointer-events: auto;
 }
@@ -745,4 +745,5 @@ progress::-webkit-progress-value {
   position: absolute;
   left: -9999px;
   top: -9999px;
+
 }
